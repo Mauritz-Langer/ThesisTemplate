@@ -1,0 +1,152 @@
+\documentclass[12pt, a4paper, oneside]{article}
+%die Pakete werden hier durch den Include-Befehl separat eingelesen
+
+\include{Common/Packages}
+\include{Acronyms}
+\include{Meta}
+
+% Setze die Optionen für das Abkürzungsverzeichnis
+\acsetup{
+    list/template = longtable,
+    first-style=short
+}
+
+\graphicspath{ {./Images/} }
+
+\lstset{language=R}
+\lstset{basicstyle=\ttfamily,
+    basicstyle=\small}
+\lstset{literate=%
+    {Ö}{{Ö}}1
+    {Ä}{{Ä}}1
+    {Ü}{{Ü}}1
+    {ß}{{\ss}}1
+    {ü}{{ü}}1
+    {ä}{{ä}}1
+    {ö}{{ö}}1
+}
+
+% YAML lstset
+\lstdefinelanguage{YAML}{
+    keywords={true,false,null,y,n},
+    keywordstyle=\color{blue},
+    sensitive=false,
+    comment=[l]{\#},
+    commentstyle=\color{gray}\ttfamily,
+    stringstyle=\color{orange}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+
+% JSON lstset
+\lstdefinelanguage{JSON}{
+    keywords={true,false,null},
+    keywordstyle=\color{blue},
+    sensitive=false,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{gray}\ttfamily,
+    stringstyle=\color{orange}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+
+% XML lstset
+\lstdefinelanguage{XML}{
+    basicstyle=\ttfamily\footnotesize,
+    morestring=[b]",
+    morestring=[s]{>}{<},
+    morecomment=[s]{<?}{?>},
+    morecomment=[s]{<!--}{-->},
+    commentstyle=\color{gray},
+    keywordstyle=\color{blue},
+    stringstyle=\color{orange},
+    morekeywords={xmlns,version,type,project,modelVersion,parent,groupId,artifactId,packaging,name,description,properties,java,siemens,tc,,log4j2,spring,openapi,oracle,jdbc,dependencies,dependency,groupId,exclusions,exclusion,build,configuration,finalName,xsi,schemaLocation,plugins,plugin,executions,execution,id,phase,goals,goal,defaultLibBundleDir,skinnyWars,displayName,modules,webModule,contextRoot,scope}% list your attributes here
+}
+
+\lstset{
+    frame=single,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}},
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\small,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    showstringspaces=false,
+    tabsize=2,
+    rulecolor=\color{black!30},
+    captionpos=b
+}
+
+
+\title{\textbf{Bachelor Thesis}}
+\author{Mauritz Langer}
+
+\setlength{\parindent}{0cm} %keine Einrückung
+\linespread{1.5}
+
+\newcounter{SeitenzahlSpeicher}
+\begin{document}
+
+    \setcounter{tocdepth}{4} % Include paragraphs in table of contents
+    \setcounter{secnumdepth}{4} % Number paragraphs
+
+    \include{Titlepage}
+
+    \begin{spacing}{1}
+        \pagenumbering{Roman}
+        \setcounter{page}{1}
+        \tableofcontents
+    \end{spacing}
+
+    \newpage
+    \begin{spacing}{1}
+        \section*{Abkürzungsverzeichnis}
+        \addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+        \printacronyms[heading=none]
+    \end{spacing}
+
+    \newpage
+    \begin{spacing}{1}
+        \section*{Abbildungsverzeichnis}
+        \addcontentsline{toc}{section}{Abbildungsverzeichnis}
+        \renewcommand{\listfigurename}{}
+        \listoffigures
+    \end{spacing}
+
+    \newpage
+    \begin{spacing}{1}
+        \section*{Tabellenverzeichnis}
+        \addcontentsline{toc}{section}{Tabellenverzeichnis}
+        \renewcommand{\listtablename}{}
+        \listoftables
+    \end{spacing}
+
+    \newpage
+    \clearpage
+    \setcounter{SeitenzahlSpeicher}{\value{page}}
+    \pagenumbering{arabic}
+    \newpage
+    \pagenumbering{arabic}
+
+    \include{Content/Content}
+
+    \clearpage
+    \pagenumbering{Roman}
+    \setcounter{page}{\theSeitenzahlSpeicher}
+
+
+    \section{Literaturverzeichnis}
+    \renewcommand{\refname}{}
+    \printbibliography
+
+    \newpage
+
+
+    \appendix %Anhang
+    \pagenumbering{arabic}
+
+
+    \include{Appendix/Appendix}
+
+\end{document}

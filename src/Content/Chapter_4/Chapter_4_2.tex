@@ -1,0 +1,21 @@
+\subsection{Tabellen}
+
+Im folgenden finden Sie ein Beispiel für die Definition einer Tabelle.
+
+\begin{table}[h!]
+  \centering
+  \setlength{\extrarowheight}{5pt}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{Commit-Nachricht} & \textbf{Alte Version} & \textbf{Pre-Release} & \textbf{Release} \\
+    \hline
+    fix(\ldots): \ldots & 1.0.0 & 1.0.1-stage.1 & 1.0.1\\
+    \hline
+    feat(\ldots): \ldots & 1.0.0 & 1.1.0-stage.1 & 1.1.0\\
+    \hline
+    perf(\ldots): \ldots & 1.0.0 & 2.0.0-stage.1 & 2.0.0\\
+    \hline
+  \end{tabular}
+  \caption[Commit-Nachrichten zur Erhöhung der Versionsnummer.]{Commit-Nachrichten zur Erhöhung der Versionsnummer. Quelle: eigene Darstellung.}
+  \label{tab:semantic-release}
+\end{table}

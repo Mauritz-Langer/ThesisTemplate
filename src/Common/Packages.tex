@@ -1,0 +1,50 @@
+% Pakete für die Literaturverwaltung und Zitieren im APA-Stil
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{ngerman}{ngerman-apa}
+\usepackage[bottom]{footmisc}
+
+% Pakete für die Darstellung von Bildern
+\usepackage{graphicx}
+\usepackage{floatflt}
+
+% Mathematik-Pakete
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{dsfont}
+
+% Weitere Pakete
+\usepackage{microtype}
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\usepackage{blindtext}
+\usepackage{etoolbox}
+\usepackage[list]{acro}
+\usepackage[onehalfspacing]{setspace}
+\usepackage[top=3cm, bottom=2cm, left=3cm, right=2cm]{geometry}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{epsfig}
+\usepackage{longtable}
+\usepackage{dcolumn}
+\usepackage{here}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{lipsum}
+\usepackage{dirtree}
+\usepackage{afterpage}
+\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref} %Nur verwenden wenn Links im Dokument farbig angezeigt werden sollen
+%\usepackage[hidelinks]{hyperref} %Verwenden wenn die Links nicht farbig hervorgehoben werden sollen.
+\usepackage{xurl}
+
+% Benutzerdefinierte Befehle
+\newcommand{\ricardo}[1]{\colorbox{ForestGreen}{\color{white}   \textsf{\textbf{Ricardo}}} \textcolor{ForestGreen}{#1}}
+
+% Schriftart auf Sans-Serif ändern
+\renewcommand{\familydefault}{\sfdefault}
+
+% Hier geben Sie Ihre Bibliografiedatei an
+\addbibresource{Bibliographie.bib}
